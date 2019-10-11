@@ -18,12 +18,20 @@ gd gd-devel \
 perl-ExtUtils-Embed \
 GeoIP-devel \
 gperftools-libs gperftools-devel \
+pcre-devel \
+openssl-devel
+
+
+
 
 cd $nginx_dir
-./configure $(nginx -V 2>&1 | grep configure | cut -d ':' -f 2) --add-module=../ngx-fancyindex
+bash -c "./configure $(nginx -V 2>&1 | grep configure | cut -d ':' -f 2) --add-module=../ngx-fancyindex"
 
 
 make -j4
 
+
+echo "install with "
+echo "    sudo make install"
 # sudo make install
 
