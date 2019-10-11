@@ -3,8 +3,8 @@
 
 
 version=$(nginx -v 2>&1 | cut -d '/' -f 2)
-nginx_dir=nginx-$(version)
-nginx_fname=nginx-$(version).tar.gz
+nginx_dir=nginx-${version}
+nginx_fname=nginx-${version}.tar.gz
 wget -c http://nginx.org/download/${nginx_fname}
 tar zxf $nginx_fname
 
