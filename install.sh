@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This script needs nginx installed already
+if [ ! -x "$(command -v nginx)" ]; then
+  echo "Please install nginx with"
+  echo "    sudo yum install -y nginx"
+  echo "before using this script"
+  exit 1
+fi
 
 
 version=$(nginx -v 2>&1 | cut -d '/' -f 2)
@@ -10,6 +17,7 @@ tar zxf $nginx_fname
 
 
 git clone --depth 1 https://github.com/aperezdc/ngx-fancyindex.git ngx-fancyindex
+
 
 sudo yum install -y \
 libxml2 libxml2-devel \
@@ -32,6 +40,6 @@ make -j4
 
 
 echo "install with "
-echo "    sudo make install"
+echo "    cd $nginx_dir; sudo make install"
 # sudo make install
 
