@@ -33,6 +33,7 @@ openssl-devel
 
 
 cd $nginx_dir
+echo "./configure $(nginx -V 2>&1 | grep configure | cut -d ':' -f 2) --add-module=../ngx-fancyindex"
 bash -c "./configure $(nginx -V 2>&1 | grep configure | cut -d ':' -f 2) --add-module=../ngx-fancyindex"
 
 
